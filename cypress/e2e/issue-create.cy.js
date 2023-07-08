@@ -126,7 +126,7 @@ describe('Issue create', () => {
       cy.get('[data-testid="select:reporterId"]').click();
       cy.get('[data-testid="select-option:Baby Yoda"]').click();
 
-      //Assign the assignee as Baby Yoda to have avatar visible on board
+      //Select the assignee as Baby Yoda to have avatar visible on board
       cy.get('[data-testid="select:userIds"]').click();
       cy.get('[data-testid="select-option:Baby Yoda"]').click();
       
