@@ -10,6 +10,7 @@ describe('Issue create', () => {
   });
 
   it('Should create an issue and validate it successfully', () => {
+    
     //System finds modal for creating issue and does next steps inside of it
     cy.get('[data-testid="modal:issue-create"]').within(() => {
       
@@ -45,12 +46,14 @@ describe('Issue create', () => {
 
     //Assert than only one list with name Backlog is visible and do steps inside of it
     cy.get('[data-testid="board-list:backlog').should('be.visible').and('have.length', '1').within(() => {
+      
       //Assert that this list contains 5 issues and first element with tag p has specified text
       cy.get('[data-testid="list-issue"]')
           .should('have.length', '5')
           .first()
           .find('p')
           .contains('TEST_TITLE');
+
       //Assert that correct avatar and type icon are visible
       cy.get('[data-testid="avatar:Lord Gaben"]').should('be.visible');
       cy.get('[data-testid="icon:story"]').should('be.visible');
@@ -97,12 +100,14 @@ describe('Issue create', () => {
 
     //Assert than only one list with name Backlog is visible and do steps inside of it
     cy.get('[data-testid="board-list:backlog').should('be.visible').and('have.length', '1').within(() => {
+      
       //Assert that this list contains 5 issues and first element with tag p has specified text
       cy.get('[data-testid="list-issue"]')
           .should('have.length', '5')
           .first()
           .find('p')
           .contains('Bug');
+
       //Assert that correct avatar and type icon are visible
       cy.get('[data-testid="avatar:Pickle Rick"]').should('be.visible');
       cy.get('[data-testid="icon:story"]').should('be.visible');
@@ -149,6 +154,7 @@ describe('Issue create', () => {
 
     //Assert than only one list with name Backlog is visible and do steps inside of it
     cy.get('[data-testid="board-list:backlog').should('be.visible').and('have.length', '1').within(() => {
+      
       //Assert that this list contains 5 issues and first element with tag p has specified text
       cy.get('[data-testid="list-issue"]')
           .should('have.length', '5')
@@ -164,6 +170,7 @@ describe('Issue create', () => {
   it('Should validate title is required field if missing', () => {
     //System finds modal for creating issue and does next steps inside of it
     cy.get('[data-testid="modal:issue-create"]').within(() => {
+      
       //Try to click create issue button without filling any data
       cy.get('button[type="submit"]').click();
 
